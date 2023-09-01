@@ -5,7 +5,7 @@
   font-style: medium;
   font-weight: 700;
   font-display: swap;
-  src: url(../../98dd7e32290597560ac3.woff2) format("woff2");
+  src: url(../98dd7e32290597560ac3.woff2) format("woff2");
 }
 
 @font-face {
@@ -13,14 +13,14 @@
   font-style: regular;
   font-weight: 700;
   font-display: swap;
-  src: url(../../f1f2ab9b089037435027.woff2) format("woff2");
+  src: url(../f1f2ab9b089037435027.woff2) format("woff2");
 }
 
 @font-face {
   font-family: TTTravels;
   font-style: regular;
   font-display: swap;
-  src: url(../../f49c1d0992e2b7b0455f.ttf) format("truetype");
+  src: url(../f49c1d0992e2b7b0455f.ttf) format("truetype");
 }
 
 /* ! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com */

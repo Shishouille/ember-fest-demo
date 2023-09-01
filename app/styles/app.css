@@ -1,4 +1,39 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+
+@font-face {
+  font-family: TomkinCondense;
+  font-style: medium;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/TomkinCondense-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: TomkinCondense;
+  font-style: regular;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/TomkinCondense-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: TTTravels;
+  font-style: regular;
+  font-display: swap;
+  src: url("/fonts/TTTravels.ttf") format("truetype");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  font-family: "TomkinCondense", sans-serif;
+}
+
+.i-background {
+  background-image: url("https://emberfest.eu/images/backgrounds/pattern_2.svg");
+  background-repeat: repeat;
+  background-size: 200px;
+  background-position: center top -100px;
+}

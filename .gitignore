@@ -14,6 +14,8 @@
 /testem.log
 /yarn-error.log
 
+/tmp/
+
 # ember-try
 /.node_modules.ember-try/
 /npm-shrinkwrap.json.ember-try

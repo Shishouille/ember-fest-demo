@@ -1,4 +1,4 @@
-import { yupResolver } from 'ember-formidable';
+import { yupValidator } from 'ember-formidable';
 import * as Yup from 'yup';
 
 import { action } from '@ember/object';
@@ -37,5 +37,5 @@ export default class extends Component<IArgs> {
     this.updatedData = JSON.stringify(data, null, 2);
   }
 
-  validator = yupResolver(schema) as unknown;
+  validator = yupValidator(schema) as unknown;
 }

@@ -5,7 +5,7 @@ module.exports = function (environment) {
     modulePrefix: 'ember-fest-demo',
     environment,
     rootURL: '/',
-    locationType: 'history',
+    locationType: 'hash',
     EmberENV: {
       EXTEND_PROTOTYPES: false,
       FEATURES: {
@@ -42,8 +42,7 @@ module.exports = function (environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
-    ENV.rootURL = '/ember-fest-demo';
-    ENV.locationType = 'hash';
+    ENV.rootURL = './';
   }
 
   return ENV;

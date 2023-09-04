@@ -1,5 +1,4 @@
-{{! @glint-nocheck }}
-<Formidable @handler={{this.logData}} @validator={{this.validator}} as |api values|>
+<Formidable @handler={{this.logData}} @validator={{this.validator}} as |api|>
   <div class="isolate bg-secondary i-background px-6 py-24 sm:py-32 lg:px-8">
     <div
       class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
@@ -30,7 +29,7 @@
                 @label="First name"
                 autocomplete="given-name"
                 type="text"
-                @errors={{api.errors.firstName}}
+                @errors={{api.getError "firstName"}}
                 {{api.register "firstName"}}
               />
             </div>
@@ -40,7 +39,7 @@
                 @label="Last name"
                 autocomplete="family-name"
                 type="text"
-                @errors={{api.errors.lastName}}
+                @errors={{api.getError "lastName"}}
                 {{api.register "lastName"}}
               />
             </div>
@@ -59,15 +58,12 @@
                 @label="Email"
                 autocomplete="organization"
                 type="email"
-                @errors={{api.errors.email}}
+                @errors={{api.getError "email"}}
                 {{api.register "email"}}
               />
             </div>
             <div class="sm:col-span-2">
-              <label
-                for="phone-number"
-                class="block text-sm font-semibold leading-6 text-gray-900"
-              >Phone number</label>
+              <Label for="phone-number">Phone number</Label>
               <div class="relative mt-2.5">
                 <div class="absolute inset-y-0 left-0 flex items-center">
                   <F::Select
@@ -78,7 +74,8 @@
                       (hash value="FR" label="🇫🇷 +33")
                       (hash value="US" label="🇺🇸 +1")
                     }}
-                    {{api.register "phone.country"}}
+                    name="phone.country"
+                    {{api.register}}
                   />
                   <svg
                     class="pointer-events-none absolute right-3 top-0 h-full w-5 text-gray-400"
@@ -98,12 +95,13 @@
                   @id="phone-number"
                   autocomplete="tel"
                   class="block w-full border-0 px-3.5 py-2 pl-28"
-                  {{api.register "phone.number"}}
+                  name="phone.number"
+                  {{api.register}}
                 />
 
               </div>
-              <ErrorMessage @errors={{get api.errors "phone.number"}} />
-              <ErrorMessage @errors={{get api.errors "phone.country"}} />
+              <ErrorMessage @errors={{api.getError "phone.number"}} />
+              <ErrorMessage @errors={{api.getError "phone.country"}} />
             </div>
             <div class="sm:col-span-2">
               <F::Input
@@ -111,7 +109,7 @@
                 @label="Birthday"
                 autocomplete="bday"
                 type="date"
-                @errors={{api.errors.birthday}}
+                @errors={{api.getError "birthday"}}
                 {{api.register "birthday"}}
               />
             </div>
@@ -125,34 +123,35 @@
               <F::Input
                 @label="Talk title"
                 @id="talk-title"
+                @errors={{api.getError "talk.title"}}
                 {{api.register "talk.title"}}
-                @errors={{get api.errors "talk.title"}}
               />
             </div>
             <div class="sm:col-span-2">
               <F::Textarea
                 @id="talk-description"
                 @label="Talk description"
-                @errors={{get api.errors "talk.description"}}
+                @errors={{api.getError "talk.description"}}
                 {{api.register "talk.description"}}
               />
             </div>
             <F::Toggle
-              @toggled={{values.agreed}}
+              @toggled={{api.getValue "agreed"}}
+              {{! @glint-expect-error: No types yet }}
               @onToggle={{queue
                 (fn api.setValue "agreed")
                 (if api.isSubmitted (fn api.validate "agreed"))
               }}
-              @errors={{api.errors.agreed}}
+              @errors={{api.getError "agreed"}}
             >
+              {{! @glint-expect-error: don't know how to type named blocks :( }}
               <:label>
                 By selecting this, you agree to our
                 <a href="#" class="font-semibold text-primary">privacy&nbsp;policy</a>.
-
               </:label>
             </F::Toggle>
             <div class="sm:col-span-2">
-              <F::Fieldset @legend="Select your reviewers!" @errors={{api.errors.reviewers}}>
+              <F::Fieldset @legend="Select your reviewers!" @errors={{api.getError "reviewers"}}>
                 <F::Checkbox
                   @id="joschka"
                   @label="Joschka"

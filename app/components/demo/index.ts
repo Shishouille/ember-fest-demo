@@ -5,8 +5,7 @@ import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
-interface Signature {
-  Element: HTMLAnchorElement;
+interface DemoSignature {
   Args: {};
   Blocks: {
     default: [];
@@ -32,14 +31,21 @@ const schema = Yup.object().shape({
     .required('At least one reviewer is required'),
 });
 
-export default class extends Component<Signature> {
-  @tracked
-  updatedData?: string;
+class DemoComponent extends Component<DemoSignature> {
+  @tracked updatedData?: string;
 
   @action
   logData(data: object) {
     this.updatedData = JSON.stringify(data, null, 2);
   }
 
-  validator = yupValidator(schema) as unknown;
+  validator = yupValidator(schema) as any;
+}
+
+export default DemoComponent;
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    Demo: typeof DemoComponent;
+  }
 }

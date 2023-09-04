@@ -1,0 +1,13 @@
+<fieldset>
+  {{#if @legend}}
+    <legend class="text-sm font-semibold leading-6 text-accent">{{@legend}}</legend>
+  {{/if}}
+  <div class="mt-2 space-y-6 lg:flex items-center place-content-between">
+    {{yield}}
+  </div>
+  {{#if @errors}}
+    <div>
+      <ErrorMessage @errors={{@errors}} />
+    </div>
+  {{/if}}
+</fieldset>

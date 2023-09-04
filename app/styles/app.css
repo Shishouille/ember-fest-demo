@@ -5,7 +5,7 @@
   font-style: medium;
   font-weight: 700;
   font-display: swap;
-  src: url("/fonts/TomkinCondense-Medium.woff2") format("woff2");
+  src: url("/assets/fonts/TomkinCondense-Medium.woff2") format("woff2");
 }
 
 @font-face {
@@ -13,14 +13,14 @@
   font-style: regular;
   font-weight: 700;
   font-display: swap;
-  src: url("/fonts/TomkinCondense-Regular.woff2") format("woff2");
+  src: url("/assets/fonts/TomkinCondense-Regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: TTTravels;
   font-style: regular;
   font-display: swap;
-  src: url("/fonts/TTTravels.ttf") format("truetype");
+  src: url("/assets/fonts/TTTravels.ttf") format("truetype");
 }
 
 @tailwind base;

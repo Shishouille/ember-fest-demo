@@ -8,10 +8,10 @@ module.exports = function (defaults) {
     'ember-composable-helpers': {
       only: ['optional', 'queue'],
     },
-    // Add options here
   });
 
   const { Webpack } = require('@embroider/webpack');
+
   return require('@embroider/compat').compatBuild(app, Webpack, {
     staticAddonTestSupportTrees: true,
     staticAddonTrees: true,

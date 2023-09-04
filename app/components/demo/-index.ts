@@ -5,15 +5,19 @@ import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
-interface IArgs {}
+interface Signature {
+  Element: HTMLAnchorElement;
+  Args: {};
+  Blocks: {
+    default: [];
+  };
+}
 
 const schema = Yup.object().shape({
   lastName: Yup.string().required('Last name is required'),
   firstName: Yup.string().required('First name is required'),
   phone: Yup.object().shape({
-    country: Yup.string()
-      .oneOf(['ES', 'FR', 'US'])
-      .required('Phone country is required'),
+    country: Yup.string().oneOf(['ES', 'FR', 'US']).required('Phone country is required'),
     number: Yup.string().required('Phone number is required'),
   }),
   birthday: Yup.string().required('Birthday is required'),
@@ -28,7 +32,7 @@ const schema = Yup.object().shape({
     .required('At least one reviewer is required'),
 });
 
-export default class extends Component<IArgs> {
+export default class extends Component<Signature> {
   @tracked
   updatedData?: string;
 

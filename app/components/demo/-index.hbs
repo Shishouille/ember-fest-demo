@@ -1,8 +1,5 @@
-<Formidable
-  @handler={{this.logData}}
-  @validator={{this.validator}}
-  as |api values|
->
+{{! @glint-nocheck }}
+<Formidable @handler={{this.logData}} @validator={{this.validator}} as |api values|>
   <div class="isolate bg-secondary i-background px-6 py-24 sm:py-32 lg:px-8">
     <div
       class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
@@ -19,8 +16,8 @@
       <div>
         <div class="max-w-2xl text-center border-b border-accent pb-5 sm:pb-10">
           <Header>Add a talk</Header>
-          <Subheader class="mt-3">Want to raise your voice in front of the
-            audience? Add your infos here!</Subheader>
+          <Subheader class="mt-3">Want to raise your voice in front of the audience? Add your infos
+            here!</Subheader>
         </div>
         <form class="mt-16 max-w-xl sm:mt-20" {{on "submit" api.onSubmit}}>
           <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -150,18 +147,12 @@
             >
               <:label>
                 By selecting this, you agree to our
-                <a
-                  href="#"
-                  class="font-semibold text-primary"
-                >privacy&nbsp;policy</a>.
+                <a href="#" class="font-semibold text-primary">privacy&nbsp;policy</a>.
 
               </:label>
             </F::Toggle>
             <div class="sm:col-span-2">
-              <F::Fieldset
-                @legend="Select your reviewers!"
-                @errors={{api.errors.reviewers}}
-              >
+              <F::Fieldset @legend="Select your reviewers!" @errors={{api.errors.reviewers}}>
                 <F::Checkbox
                   @id="joschka"
                   @label="Joschka"
@@ -207,11 +198,7 @@
         </div>
         {{#if this.updatedData}}
           <div class="mt-16 max-w-xl sm:mt-20">
-            <CodeBlock
-              @code={{this.updatedData}}
-              @language="json5"
-              @theme="vitesse-dark"
-            />
+            <CodeBlock @code={{this.updatedData}} @language="json5" @theme="vitesse-dark" />
           </div>
         {{/if}}</div>
     </div>

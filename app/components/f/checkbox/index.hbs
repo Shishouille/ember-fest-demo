@@ -12,15 +12,11 @@
 
       <label class="cursor-pointer flex h-6 items-center ml-2" for={{@id}}>
         {{#if @avatar}}
-          <img
-            src={{@avatar}}
-            alt=""
-            class="h-8 w-8 flex-shrink-0 rounded-full"
-          />
+          <img src={{@avatar}} alt="" class="h-8 w-8 flex-shrink-0 rounded-full" />
         {{/if}}
-        <span
-          class="font-normal ml-2 block truncate text-accent"
-        >{{@label}}</span>
+        {{#if @label}}
+          <span class="font-normal ml-2 block truncate text-accent">{{@label}}</span>
+        {{/if}}
       </label>
     </div>
   </div>

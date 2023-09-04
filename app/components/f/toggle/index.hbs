@@ -7,6 +7,7 @@
         {{if @errors 'ring-important'}}"
       role="switch"
       aria-checked={{@toggled}}
+      {{! @glint-expect-error: Said it's a string when it's a boolean? }}
       {{on "click" (fn @onToggle (not @toggled))}}
       ...attributes
     >
@@ -22,6 +23,7 @@
 
   <Label for="switch-1-label">
     {{#if (has-block "label")}}
+      {{! @glint-expect-error: don't know how to type named blocks :( }}
       {{yield to="label"}}
     {{else if @label}}
       {{@label}}

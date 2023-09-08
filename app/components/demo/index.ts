@@ -25,7 +25,7 @@ const schema = Yup.object().shape({
     title: Yup.string().required('Talk title is required'),
     description: Yup.string().required('Talk description is required'),
   }),
-  agreed: Yup.boolean().required('You must agree'),
+  agreed: Yup.boolean().required('You must agree').isTrue('You must agree'),
   reviewers: Yup.array()
     .of(Yup.string().oneOf(['joschka', 'balint', 'marco']))
     .required('At least one reviewer is required'),

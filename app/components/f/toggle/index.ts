@@ -1,6 +1,6 @@
-import { FormidableError } from 'ember-formidable';
-
 import templateOnlyComponent from '@ember/component/template-only';
+
+import type { FormidableError } from 'ember-formidable';
 
 interface ToggleSignature {
   Element: HTMLElement;
@@ -10,7 +10,7 @@ interface ToggleSignature {
     toggled: boolean;
     onToggle: () => void;
   };
-  Blocks: { default: [] };
+  Blocks: { label: [] };
 }
 
 const ToggleComponent = templateOnlyComponent<ToggleSignature>();

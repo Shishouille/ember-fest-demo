@@ -23,7 +23,6 @@
 
   <Label for="switch-1-label">
     {{#if (has-block "label")}}
-      {{! @glint-expect-error: don't know how to type named blocks :( }}
       {{yield to="label"}}
     {{else if @label}}
       {{@label}}

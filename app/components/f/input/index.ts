@@ -5,7 +5,7 @@ import templateOnlyComponent from '@ember/component/template-only';
 interface FInputSignature {
   Element: HTMLInputElement;
   Args: { errors?: FormidableError[]; label?: string; id?: string };
-  Blocks: { default: [] };
+  Blocks: { label: [] };
 }
 
 const InputComponent = templateOnlyComponent<FInputSignature>();

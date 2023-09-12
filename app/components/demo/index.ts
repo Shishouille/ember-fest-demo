@@ -1,9 +1,9 @@
-import { yupValidator } from 'ember-formidable';
-import * as Yup from 'yup';
-
-import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
+
+import { yupValidator } from 'ember-formidable';
+import * as Yup from 'yup';
 
 interface DemoSignature {
   Args: {};
@@ -31,11 +31,23 @@ const schema = Yup.object().shape({
     .required('At least one reviewer is required'),
 });
 
+interface IFormData {
+  lastName: string;
+  firstName: string;
+  phone: { country: string; number: string };
+  birthday: string;
+  email: string;
+  talk: { title: string; description: string };
+  agreed: boolean;
+  reviewers: string[];
+  company?: string;
+}
+
 class DemoComponent extends Component<DemoSignature> {
   @tracked updatedData?: string;
 
   @action
-  logData(data: object) {
+  logData(data: IFormData) {
     this.updatedData = JSON.stringify(data, null, 2);
   }
 

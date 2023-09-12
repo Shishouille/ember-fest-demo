@@ -68,8 +68,7 @@
                       (hash value="FR" label="🇫🇷 +33")
                       (hash value="US" label="🇺🇸 +1")
                     }}
-                    name="phone.country"
-                    {{api.register}}
+                    {{api.register "phone.country"}}
                   />
                   <svg
                     class="pointer-events-none absolute right-3 top-0 h-full w-5 text-gray-400"
@@ -89,8 +88,7 @@
                   @id="phone-number"
                   autocomplete="tel"
                   class="block w-full border-0 px-3.5 py-2 pl-28"
-                  name="phone.number"
-                  {{api.register}}
+                  {{api.register "phone.number"}}
                 />
 
               </div>
@@ -113,7 +111,6 @@
           >
             <SectionTitle>Your talk</SectionTitle>
             <div class="sm:col-span-2">
-
               <F::Input
                 @label="Talk title"
                 @id="talk-title"
